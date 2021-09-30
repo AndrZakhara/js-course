@@ -1,4 +1,4 @@
 
-let isName = prompt('How is your soname?', 'Rembo?');
+let isName = prompt('what is your surname?', 'Rembo?');
 
-alert (`Oh, you soname is ${isName}, not Rembo`);
+alert (`Oh, my English isn't very good,  you surname is ${isName}, not Rembo`);
