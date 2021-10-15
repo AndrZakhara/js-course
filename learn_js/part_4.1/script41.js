@@ -26,3 +26,18 @@ function isEmpty(obj) {
 }
 isEmpty();
 console.log(isEmpty());
+
+//task 3
+let salaries = {
+    John: 185,
+    Ann: 160,
+    Pete: 130
+}
+function SumSalary() {
+    let sum = 0;
+    for (let key in salaries) {
+        sum += salaries[key];
+    }
+   return sum;
+}
+console.log(SumSalary());
