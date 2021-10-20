@@ -21,8 +21,9 @@
 // function User(name, age, nat) {
 //     this.name = name;
 //     this.age = age;
-//     this.sayHi = function () { 
-//         console.log("my name is " + this.name + " & I`am " + this.age) };
+//     this.sayHi = function () {
+//         console.log("my name is " + this.name + " & I`am " + this.age)
+//     };
 //     this.nat = nat;
 // }
 // let vasya = new User("Vasya", 30, "ua", 55, "ky-ky");
@@ -33,25 +34,42 @@
 // console.log(peter);
 // peter.sayHi();
 
-//task 2
-function Calculator() {
+// // task 2
+// function Calculator() {
+
+//     this.read = function () {
+//         this.a = +prompt('input a ', 1);
+//         this.b = +prompt('input b ', 1);
+//     };
+//     this.sum = function () {
+//         alert(`Summa ${this.a}+${this.b} equals... `);
+//         return (this.a + this.b);
+//     };
+//     this.mul = function () {
+//         alert(`Multiplication ${this.a}*${this.b} equals... `);
+//         return (this.a * this.b);
+//     };
+// };
+// let calculator11 = new Calculator();
+
+// calculator11.read();
+
+// alert("Sum=" + calculator11.sum());
+// alert("Mul=" + calculator11.mul());
+
+//task 3
+
+function Accumulator(startValue) {
+    this.value = startValue;
 
     this.read = function () {
-        this.a = +prompt('input a ', 1);
-        this.b = +prompt('input b ', 1);
-    };
-    this.sum = function () {
-        alert(`Summa ${this.a}+${this.b} equals... `);
-        return (this.a + this.b);
-    };
-    this.mul = function () {
-        alert(`Multiplication ${this.a}*${this.b} equals... `);
-        return (this.a * this.b);
+        this.value += +prompt('input value ', 0);
+        // return this;
     };
 };
-let calculator11 = new Calculator();
+let accumulator = new Accumulator(5);
 
-calculator11.read();
-
-alert("Sum=" + calculator11.sum());
-alert("Mul=" + calculator11.mul());
+accumulator.read();
+accumulator.read();
+accumulator.read();
+alert(accumulator.value);
