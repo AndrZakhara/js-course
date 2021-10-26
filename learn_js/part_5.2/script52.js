@@ -36,22 +36,27 @@
 
 // task 6 (complicated by me!)
 const obj = {};
-obj["test"] = "until different*10";
 
 function randomInteger(min, max) {
     // also we can doing here a check  "(max-min)>1"  using "if"  
-    start: for (let step = 1; step < (max-min)*10; step++) {
+
+    start: for (let step = 1; step < (max - min) * 10; step++) {
         let b;
         let a = (Math.round(Math.random() * (max - min - 1) + min));
-
-        for (let key in obj) {
-            if (Number(obj[key]) != a) {
-                b = a; //    console.log("шаг:" + step + " число: " + b + " перебор key " + key);
-            }
-            else { continue start };
+        if (step === 1) {
+            obj[step] = a;
+            continue start;
         }
-        obj[step] = b;
-
+        else {
+            for (let key in obj) {
+               
+                if (Number(obj[key]) !== a) {
+                    b = a; //    console.log("шаг:" + step + " число: " + b + " перебор key " + key);
+                }
+                else { continue start };
+            }
+            obj[step] = b;
+         }
         if ((Object.keys(obj).length) == (1 + max - min)) { break };
     };
 };
