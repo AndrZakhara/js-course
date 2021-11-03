@@ -42,10 +42,7 @@ console.log(arr);
 // task 5
 let arr = ["HTML", "JavaScript", "CSS", "PITON"];
 function copySorted(arr) {
-    let nArr = arr.concat();
-    nArr.sort();
-        console.log(nArr);
-     return;
+    return arr.concat().sort();
 };
-copySorted(arr);
+console.log(copySorted(arr));
 console.log(arr);
