@@ -135,3 +135,18 @@ const strings = ["кришна", "кришна", "харе", "харе",
     "харе", "харе", "кришна", "кришна", ":-O"
 ];
 console.log(unique(strings)); // кришна, харе, :-O
+
+// task 7
+function calc(str) {
+
+    let arr = str.split(' ');
+    let a = +arr[0],
+        b = +arr[2];
+    switch (arr[1]) {
+        case "+": return (a + b)
+        case "-": return (a - b)
+        case "*": return (a * b)
+        case "/": return (a / b) 
+    };
+};
+console.log(calc("6 - 4"));
