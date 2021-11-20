@@ -19,11 +19,8 @@ P.S. Здесь есть несколько вариантов решения з
 "Добавляем любимый фильм"
 5) Фильмы должны быть отсортированы по алфавиту */
 
-
-
 'use strict';
 document.addEventListener('DOMContentLoaded', () => {
-
 
     const movieDB = {
         movies: [
@@ -35,15 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
     const blurb = document.querySelectorAll('.promo__adv img'),
-        genre = document.querySelector('.promo__genre'),
-        pic = document.querySelector('.promo__bg'),
-        mov = document.querySelector('.promo__interactive-list');
-    // start new code
+          genre = document.querySelector('.promo__genre'),
+          pic = document.querySelector('.promo__bg'),
+          mov = document.querySelector('.promo__interactive-list');
+ 
     const form = document.querySelector("form.add"),
-        inpFilm = form.querySelector(".adding__input"),
-        likeFilm = form.querySelector("checkbox"),
-        checkbox = form.querySelector('[type="checkbox"]');
-
+          inpFilm = form.querySelector(".adding__input"),
+          checkbox = form.querySelector('[type="checkbox"]');
+        //input new films 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -58,11 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             movieDB.movies.push(newFilm);
+           
             changeListFilms(movieDB.movies, mov);
+            //begin task 2.4
+            const favorite = checkbox.checked;
+            if (favorite) {
+                console.log('like film')
+            };
+            //finish task 2.4
         };
         event.target.reset();// clear input
     });
-
+        
     const deleteRubbish = function (adv) {
         adv.forEach(item => item.remove())
     };
@@ -71,30 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
         genre.textContent = "Drama";
         pic.style.backgroundImage = "url('img/bg.jpg') ";
     };
-
+    // 
     function changeListFilms(arrFilms, listFilms) {
         listFilms.innerHTML = ""; //clear all films
-        arrFilms.sort();
+        arrFilms.sort();//task 5
 
         arrFilms.forEach((film, key) => {
             listFilms.innerHTML += ` <li class="promo__interactive-item">${key + 1}) ${film}
                                          <div class="delete"></div>
                                      </li>`
         });
+        //task 2.3  delete films 
         let del = document.querySelectorAll('div.delete');
-        del.forEach((btn, i) => {
 
+        del.forEach((btn, i) => {
             btn.addEventListener('click', () => {
                 btn.parentElement.remove();
                 movieDB.movies.splice(i, 1);
-                changeListFilms(movieDB.movies, mov);//
+                   
+                changeListFilms(arrFilms, listFilms);
             })
-        
         });
     };
 
     deleteRubbish(blurb);
     makeImprove();
     changeListFilms(movieDB.movies, mov);
-
-})
+});
