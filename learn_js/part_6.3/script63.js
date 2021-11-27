@@ -113,3 +113,48 @@ function inArray(arr) {
 
 console.log(arr.filter(inBetween(3, 6))); // 3,4,5,6
 console.log(arr.filter(inArray([5, 2, 10]))); // 1,2
+
+//task 6
+let users = [
+    { name: "John", age: 20, surname: "Johnson" },
+    { name: "Pete", age: 18, surname: "Peterson" },
+    { name: "Ann", age: 19, surname: "Hathaway" }
+];
+
+function byField(value) {
+
+    return (function (a, b) {
+        return a[value] > b[value] ? 1 : -1;
+    });
+};
+
+console.log(users.sort(byField('name')));
+
+users.sort(byField('age'));
+console.log(users);
+
+//task 7
+function makeArmy() {
+    let shooters = [];
+
+ 
+    for (let i = 0; i < 10;i++ ) {
+         
+        function shooter() { 
+              
+            console.log(i) };
+
+        shooters.push(shooter);
+        ;
+         
+    };
+    
+   return shooters;
+};
+
+console.log(makeArmy());
+
+let army = makeArmy();
+
+army[0]();
+army[5]();
