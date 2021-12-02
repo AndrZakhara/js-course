@@ -1,9 +1,9 @@
 function palindrome(str) {
 
   let count = 0;
-  let arr = str.toLowerCase().split('').filter(char => /[a-z]/.test(char));
+  let arr = str.toLowerCase().split('').filter(char => /[0-9a-z]/.test(char));
   // console.log(arr);
-  let halfLength = Math.floor(arr.length/2); 
+  let halfLength = Math.floor(arr.length / 2);
 
   for (let i = 0; i < halfLength; i++) {
 
@@ -12,9 +12,13 @@ function palindrome(str) {
     }
   }
 
-  if (count == halfLength) return true
-  else return false;
+  if (count == halfLength) {
+    return true;
+  }
+  else {
+    return false;
+  }
 
 };
-let result = palindrome("My age is 0,  67555 si ega ym.");
+let result = palindrome("_+ aSa saS 5  ");
 console.log(result);
