@@ -5,7 +5,3 @@ function delay(ms) {
     });
 }
 delay(3000).then(() => console.log('Done in 3 sec.'));
-
-//task 3
-
-
