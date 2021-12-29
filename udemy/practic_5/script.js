@@ -9,11 +9,10 @@ inputUAH.addEventListener('input', () => {
   request.setRequestHeader("Content-type", "application/json; charset=utf-8");
   request.send();
 
-  request.addEventListener("readystatechange", () => {
-    if (request.readyState === 4 && request.status === 200) {
-      console.log(request.response);
+  request.addEventListener("load", () => {
+    if (request.readyState === 4 ) {
       const data = JSON.parse(request.response);
-      inputUSD.value = + inputUAH.value / data.current.usd;
+      inputUSD.value = (+ inputUAH.value / data.current.usd).toFixed(2);
     } else {
       inputUSD.value = " something  don't so! ";
     }
