@@ -83,10 +83,10 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-    const timeCh = '2021-12-31';
+    const timeCh = '2022-03-01';
     setClock('.timer', timeCh);
 
-    // Modal window
+     // Modal window
     const btnModal = document.querySelectorAll('.modal__call');
     const btnClose = document.querySelector('.modal__close');
     const modal = document.querySelector('.modal');
@@ -201,4 +201,42 @@ window.addEventListener('DOMContentLoaded', () => {
         11,
         ".menu .container",
     ).render();
+//Forms
+const forms = document.querySelectorAll('form');
+const message = {
+    loading: 'Download...',
+    success: 'Thanks , We contacting to you soon',
+    failure: 'Something went wrong...'
+};
+
+forms.forEach(item => {
+    postData(item);
 });
+
+function postData(form){
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const statusMessage = document.createElement('div');
+        statusMessage.classList.add('status');
+        statusMessage.textContent = message.loading;
+        form.append(statusMessage);
+
+        const request = new XMLHttpRequest();
+        request.open('POST','server.php');
+
+        request.setRequestHeader('Content-type','multipart/form-data');
+        const formData = new FormData(form);
+
+        request.send(formData);
+        request.addEventListener('load', () => {
+            if (request.status === 200){
+                console.log(request.response);
+               statusMessage.textContent = message.success;
+            } else {
+                statusMessage.textContent = message.failure;
+            }
+        })
+    })
+}
+}); 
