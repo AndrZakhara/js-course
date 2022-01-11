@@ -1,8 +1,11 @@
 //my task
+import {city} from './scriptMod0.mjs'
+
+// city = 'Kyiv'; // so mistake
 let multi = (a, b) => a * b;
 
 function goRight() {
-  console.log(`We went to right in the evening!`)
+  console.log(`We went to right of ${city} in the evening! `)
 }
 const name1 = 'John';
 const name2 = 'Bill';
