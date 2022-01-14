@@ -199,11 +199,11 @@ window.addEventListener('DOMContentLoaded', () => {
     11,
     ".menu .container",
   ).render();
-
+  
   //Forms
   const forms = document.querySelectorAll('form');
   const message = {
-    loading: 'Download...',
+    loading: 'img/form/054 spinner.svg',
     success: 'Thanks , We contacting to you soon',
     failure: 'Something went wrong...'
   };
@@ -216,10 +216,13 @@ window.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const statusMessage = document.createElement('div');
-      statusMessage.classList.add('status');
-      statusMessage.textContent = message.loading;
-      form.append(statusMessage);
+      const statusMessage = document.createElement('img');
+      statusMessage.src = message.loading;
+      statusMessage.style.cssText = `
+      display: block;
+      margin: 0 auto;
+      `;
+      form.insertAdjacentElement('afterend', statusMessage);
 
       const request = new XMLHttpRequest();
       request.open('POST', 'server.php');
