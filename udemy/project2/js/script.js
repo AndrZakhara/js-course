@@ -88,7 +88,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Modal window
   const btnModal = document.querySelectorAll('.modal__call');
-  // const btnClose = document.querySelector('.modal__close'); //delete
   const modal = document.querySelector('.modal');
 
   function showModalOpen() {
@@ -106,7 +105,6 @@ window.addEventListener('DOMContentLoaded', () => {
   btnModal.forEach((btn) => {
     btn.addEventListener('click', showModalOpen);
   });
-  // btnClose.addEventListener('click', showModalClose);//delete
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal || e.target.getAttribute('data-close') == '') {
@@ -201,6 +199,7 @@ window.addEventListener('DOMContentLoaded', () => {
     11,
     ".menu .container",
   ).render();
+
   //Forms
   const forms = document.querySelectorAll('form');
   const message = {
@@ -238,7 +237,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
       request.addEventListener('load', () => {
         if (request.status === 200) {
-          // console.log(request.response);
           showThanksModal(message.success);
           form.reset();
           statusMessage.remove();
