@@ -75,3 +75,32 @@ console.log(generator.next().value); // 10
 console.log(generator.next().value); // 5
 console.log(generator.next().value); // 9
 console.log(generator.next().value); // 11
+
+//my example async iterators
+let range = {
+    from: 1,
+    to: 5,
+    [Symbol.asyncIterator]() { 
+
+        return {
+            current: this.from,
+            last: this.to,
+            async next() { 
+                await new Promise(resolve => setTimeout(resolve, 1000)); 
+
+                if (this.current <= this.last) {
+                    return { done: false, value: this.current++ };
+                } else {
+                    return { done: true };
+                }
+            }
+        };
+    }
+};
+
+(async () => {
+
+    for await (let value of range) { 
+        console.log(value); // 1,2,3,4,5
+    }
+})()
