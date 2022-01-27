@@ -1,0 +1,115 @@
+<!-- task 1 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ol id="elem">
+        <li>Hello</li>
+        <li>World</li>
+    </ol>
+
+    <script>
+        // const elem = document.querySelector('#elem');
+        function clear(elem) {
+            setTimeout(() => elem.innerHTML = '', 2000);
+        }
+        clear(elem); 
+    </script>
+
+</body>
+</html>
+
+<!-- task 2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 2</h1>
+
+    <ul id="list">
+    </ul>
+
+    <script>
+        for(let i=0; i<5; i++){
+            
+            let li = document.createElement('li')
+            let text = prompt(`Input list`, 'abc...');
+            if( text ){
+                li.textContent = text;
+                list.append(li);
+            } else break;
+        }
+        
+    </script>
+    
+</body>
+</html>
+
+<!-- task  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TREE</h1>
+
+    <div id="insert"> </div>
+
+    <script>
+    let data = {
+        "Рыбы": {
+            "форель": {},
+            "лосось": {},
+        },
+
+        "Деревья": {
+            "Огромные": {
+                "секвойя": {},
+                "дуб": {},
+            },
+            "Цветковые": {
+                "яблоня": {},
+                "магнолия": {},
+            }
+        }
+    };
+
+    function createTree(container, obj) {
+      container.innerHTML = createTreeText(obj);
+    } ;
+
+    function createTreeText(obj) { 
+      let li = '';
+      let ul;
+      for (let key in obj) {
+        li += '<li>' + key + createTreeText(obj[key]) + '</li>';
+      }
+      if (li) {
+        ul = '<ul>' + li + '</ul>'
+      }
+      return ul || '';
+    };
+
+    createTree(insert, data);
+
+    </script>
+    
+</body>
+</html>
