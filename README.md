@@ -16,6 +16,8 @@ chore — обычное обслуживание кода
 
 Commit example: 
 
-### feature: add task_1.12 arrow function
-### fix: task_2.2/index.js, fix event handler
-### style: all app, change indents
+##### feature: add task_1.12 arrow function
+
+##### fix: task_2.2/index.js, fix event handler
+
+##### style: all app, change indents
